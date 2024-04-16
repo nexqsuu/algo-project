@@ -1,0 +1,99 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333;
+    height: 100vh;
+}
+
+
+
+.base {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.navbar-text {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+
+}
+
+.choice select{
+    background-color: #333;
+}
+
+.pattern textarea {
+    color: white;
+    resize: none;
+    width: 500px;
+    height: 20px;
+    padding: 12px 20px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    background-color: #b3aa03;
+    font-size: 16px;
+}
+
+.text textarea {
+    width: 500px;
+    height: 150px;
+    padding: 12px 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+}
+
+/* <select> styles */
+select {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 20rem;
+    padding: 1rem 4rem 1rem 1rem;
+    color: #b3aa03;
+    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,     
+        linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+    border-radius: 0.12em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+}
+
+
+
+:root {
+    --arrow-bg: rgba(36, 36, 36, 0.393);
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+    --option-bg: #333;
+    --select-bg: #333;
+
+    --fill-color: #b3aa03;
+    --fill-hover: #b3aa03;
+}
+
+
+  /* Basic button styles */
+button.start {
+    background: none;
+    border: 2px solid var(--fill-color);
+    color: var(--fill-color);
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+    transition: 0.25s;
+  }
+  
+  /* Fill-in effect on hover and focus */
+  button.start:hover,
+  button.start:focus {
+    box-shadow: inset 0 0 0 2em var(--fill-hover);
+    border-color: var(--fill-hover);
+    color: #fff;
+  }
