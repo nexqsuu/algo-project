@@ -13,7 +13,7 @@
 
       <div class="base">
           <div class = "choice">
-              <select name="algo" id="rithm">
+              <select id="Algorithms">
                   <option hidden>------- String Search Algorithms -------</option>
                   <option value="Knuth-Morris-Pratt">Knuth-Morris-Pratt Search</option>
                   <option value="Boyer-Moore">Boyer-Moore String Search</option>
@@ -24,12 +24,17 @@
           </br>
 
           <div class="pattern">
-            <textarea id="pattern"> pattern </textarea>
+            <textarea id="pattern">pattern</textarea>
           </div>
 
           <div class="text">
-              <textarea id="text"> text...</textarea>
+              <textarea id="text">text...</textarea>
           </div>
+
+          <div class="output">
+            
+          </div>
+
           <div>
               <button class="start" id="submit" py-click="start_search">start</button>
           </div>

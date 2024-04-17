@@ -1,6 +1,7 @@
 {
     "files": {
         "/main.py":"./main.py",
-        "/kmp.py": "./kmp.py"
+        "/kmp.py": "./kmp.py",
+        "/split.py": "./split.py"
     }
 } 
