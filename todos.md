@@ -12,7 +12,7 @@
     3. `n` - the number of matches to limit (default to 1)
 * Then return:
     1. a list of starting positions of the located patterns
-- [ ] Knuth-Morris Pratt
+- [x] Knuth-Morris Pratt
 - [ ] Boyer-Moore
 - [ ] Rabin-Karp
 

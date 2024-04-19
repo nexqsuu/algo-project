@@ -7,7 +7,6 @@ body {
 }
 
 
-
 .base {
     display: flex;
     flex-direction: column;
@@ -48,6 +47,21 @@ body {
     border-radius: 4px;
     background-color: #f8f8f8;
     font-size: 16px;
+}
+
+.highlight {
+    color: #ffffff;
+    background-color: #b3aa03;
+}
+
+.output {
+    width: 500px;
+    height: 150px;
+    padding: 12px 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    color: #b3aa03;
 }
 
 /* <select> styles */
@@ -97,3 +111,4 @@ button.start {
     border-color: var(--fill-hover);
     color: #fff;
   }
+

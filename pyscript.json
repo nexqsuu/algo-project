@@ -1,0 +1,9 @@
+{
+    "files": {
+        "/main.py":"./main.py",
+        "/kmp.py": "./kmp.py",
+        "/rk.py": "./rk.py",
+        "/split.py": "./split.py",
+        "/style.css": "./style.css"
+    }
+} 
