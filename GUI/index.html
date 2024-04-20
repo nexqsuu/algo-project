@@ -3,21 +3,25 @@
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width" />  
-      <link rel="stylesheet" type="text/css" href="style.css"/>
+      <link rel="stylesheet" type="text/css" href="./style.css"/>
       <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
       <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
       <script type="py" src="main.py" config="pyscript.json"></script>
     </head>
 
     <body> 
-
       <div class="base">
-          <div class = "choice">
+          <div class="choice">
               <select id="Algorithms">
                   <option hidden>------- String Search Algorithms -------</option>
                   <option value="Knuth-Morris-Pratt">Knuth-Morris-Pratt Search</option>
                   <option value="Boyer-Moore">Boyer-Moore String Search</option>
                   <option value="Rabin-Karp">Rabin-Karp String Search</option>
+                </select>
+                <br>
+                <select id="modes">
+                  <option value="Standard">STANDARD</option>
+                  <option value="DNA">DNA</option>
                 </select>
           </div>
 
@@ -31,10 +35,9 @@
               <textarea id="text">text...</textarea>
           </div>
 
-          <div class="output">
-            
-          </div>
-
+          <div class="output"></div>
+          <div class="timer"></div>
+        
           <div>
               <button class="start" id="submit" py-click="start_search">start</button>
           </div>

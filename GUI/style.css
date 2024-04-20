@@ -7,7 +7,6 @@ body {
 }
 
 
-
 .base {
     display: flex;
     flex-direction: column;
@@ -50,6 +49,19 @@ body {
     font-size: 16px;
 }
 
+.choice{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.highlight {
+    color: #ffffff;
+    background-color: #b3aa03;
+}
+
 .output {
     width: 500px;
     height: 150px;
@@ -57,6 +69,17 @@ body {
     border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #f8f8f8;
+    color: #000;
+}
+
+.timer {
+    width: 500px;
+    height: 30px;
+    padding: 12px 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    color: #000;
 }
 
 /* <select> styles */
@@ -106,3 +129,4 @@ button.start {
     border-color: var(--fill-hover);
     color: #fff;
   }
+

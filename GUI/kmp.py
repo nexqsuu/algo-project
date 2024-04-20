@@ -56,24 +56,24 @@ def kmp_recursive_search(search_space: str, pattern: str, max_matches: int = 1):
         return inner(j, TABLE[k], matches)  # check next
     return inner(0, 0, [])
 
-# def main():
-#     """Run if main module"""
-#     #  single match
-#     text = "ABC ABCDAB ABCDABCDABD"
-#     pattern = "ABCDABD"
-#     rec = kmp_recursive_search(text, pattern)
-#     print(f"{text=}")
-#     print(f"{pattern=}")
-#     print(f"Position/s: {rec}" if rec else "Pattern not found")
+#def main():
+#    """Run if main module"""
+    #  single match
+#    text = "ABC ABCDAB ABCDABCDABD"
+#   pattern = ""
+#   rec = kmp_recursive_search(text, pattern)
+#   print(f"{text=}")
+#   print(f"{pattern=}")
+#   print(f"Position/s: {rec}" if rec else "Pattern not found")
 
-#     print()
-#     # multiple matches
-#     text = "ABCE ABC"
-#     pattern = "ABC"
-#     rec = kmp_recursive_search(text, pattern, 3)
-#     print(f"{text=}")
-#     print(f"{pattern=}")
-#     print(f"Position/s: {rec}" if rec else "Pattern not found")
+#   print()
+#   # multiple matches
+#   text = "ABCE ABC"
+#   pattern = ""
+#   rec = kmp_recursive_search(text, pattern, 3)
+#   print(f"{text=}")
+#   print(f"{pattern=}")
+#   print(f"Position/s: {rec}" if rec else "Pattern not found")
 
-# if __name__ == "__main__":
+#if __name__ == "__main__":
 #     main()

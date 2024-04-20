@@ -2,6 +2,9 @@
     "files": {
         "/main.py":"./main.py",
         "/kmp.py": "./kmp.py",
-        "/split.py": "./split.py"
+        "/rk.py": "./rk.py",
+        "/split.py": "./split.py",
+        "/check.py": "./check.py",
+        "/style.css": "./style.css"
     }
 } 
