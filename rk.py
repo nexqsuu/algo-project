@@ -8,13 +8,17 @@ class RabinKarp:
         self.base = 256
         self.matches = []
 
-    def search(self):
+    def search(self, limit=None):
         pattern_hash = self._hash(self.pattern)
         text_hash = self._hash(self.text[:self.pattern_length])
+        match_count = 0  # Initialize match count
         for i in range(self.text_length - self.pattern_length + 1):
             substring = self.text[i:i+self.pattern_length]
             if pattern_hash == text_hash and self._check_equal(i):
                 self.matches.append(i)
+                match_count += 1
+                if limit is not None and match_count >= limit:
+                    break  # Stop searching if limit is reached
             if i < self.text_length - self.pattern_length:
                 text_hash = self._recalculate_hash(
                     self.text[i], self.text[i + self.pattern_length], text_hash)
@@ -38,3 +42,27 @@ class RabinKarp:
                 return False
         return True
 
+
+def main():
+    while True:
+        text = input("\nEnter the text: ")
+        pattern = input("\nEnter the pattern to search for: ")
+        limit = int(input("\nEnter the maximum number of matches to display: "))  # Prompt user for limit
+
+        rk = RabinKarp(text, pattern)
+        matches = rk.search(limit=limit)  # Pass limit to search method
+
+        if matches:
+            print(f"\nPattern found at positions: {matches}")
+            print(f"\nNumber of matches found: {len(matches)}")
+        else:
+            print("Pattern not found")
+
+        choice = input("\nDo you want to continue? (yes/no): ")
+        if choice.lower() != "yes":
+            print("Exiting program...")
+            break
+
+
+if __name__ == "__main__":
+    main()
