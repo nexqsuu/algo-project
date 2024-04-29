@@ -12,7 +12,6 @@ modeElement = document.querySelector("#modes")
 matchElement = document.querySelector("#n")
 
 if isinstance(matchElement.value, str):
-    print("The value is a non-numeric string!")
     matchElement.innerHTML = 1
     print(matchElement.value)
 elif matchElement.value == 0:
@@ -25,7 +24,6 @@ def start_search(event):
     timerElement = document.querySelector(".timer")
     timerElement.innerHTML = 'Time: '
 
-    print(matchElement.value)
 
     if (selectElement.value == "Knuth-Morris-Pratt"):
         start = time.perf_counter()
