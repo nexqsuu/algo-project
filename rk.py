@@ -13,9 +13,7 @@ class RabinKarp:
         text_hash = self._hash(self.text[:self.pattern_length])
         for i in range(self.text_length - self.pattern_length + 1):
             substring = self.text[i:i+self.pattern_length]
-            print(f"\nComparing '{substring}' with '{self.pattern}'")
             if pattern_hash == text_hash and self._check_equal(i):
-                print(f"\nMatch found at index {i}")
                 self.matches.append(i)
             if i < self.text_length - self.pattern_length:
                 text_hash = self._recalculate_hash(

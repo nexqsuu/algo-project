@@ -33,37 +33,29 @@ def kmp_table(P: str) -> list[int]:
         k+=1
     return f
         
-def kmp_recursive_search(search_space: str, pattern: str, max_matches: int = 1):
-    """Knuth-MorrisPratt algorithm using recursion"""
-    TABLE = kmp_table(pattern)  ## todo recursive ver of this
+def kmp_search(search_space: str, pattern: str, max_matches: int = 1):
+    # iterative version
+    TABLE = kmp_table(pattern)
     M = len(pattern)
     N = len(search_space)
-    def inner(j: int, k: int, matches: list[int]):
-        """Recursive function to search for the pattern in the search space.
-        Args:
-            j: The current index in the search space.
-            k: The current index in the pattern.
-            M: The length of the pattern.
-            N: The length of the search space.
-            matches: The list of matches found.
-        """
-        if k == M:  # pattern found
-            # append the last match to the list
-            # `j-k` is the starting index of the pattern
-            if len(matches) == max_matches - 1:
-                # early return if max matches is reached
-                return matches + [j - k] 
-            return inner(j, TABLE[k-1], matches + [j - k])
-        elif j == N:  # pattern does not exist
-            return matches
-        elif pattern[k] == search_space[j]:  # characters match
-            return inner(j + 1, k + 1, matches)
-        # resets the pattern
-        elif k == 0:
-            return inner(j + 1, max(TABLE[k], 0), matches)
-        # check next
-        return inner(j, TABLE[k-1], matches) 
-    return inner(0, 0, [])
+    matches = []
+    j = 0
+    k = 0
+    while j < N:
+        if pattern[k] == search_space[j]:
+            j += 1
+            k += 1
+            if k == M:
+                matches.append(j - k)
+                if len(matches) == max_matches:
+                    return matches
+                k = 0
+        else:
+            if k == 0:
+                j += 1
+            else:
+                k = TABLE[k - 1]
+    return matches
 
 def output(text: str, pattern: str, matches: list[int]):
     """Output the matches found"""
@@ -75,22 +67,22 @@ def main():
     #  single match
     text = "ABC ABCDAB ABCDABCDABD"
     pattern = "ABCDABD"
-    output(text, pattern, kmp_recursive_search(text, pattern))
+    output(text, pattern, kmp_search(text, pattern))
     print()
     # multiple matches
     text = "AAABCE ABC"
     pattern = "AAA"
-    output(text, pattern, kmp_recursive_search(text, pattern, 2))
+    output(text, pattern, kmp_search(text, pattern, 2))
 
     # empty pattern
     text = "blank"
     pattern = ""
-    output(text, pattern, kmp_recursive_search(text, pattern))
+    output(text, pattern, kmp_search(text, pattern))
 
     # dots
     text = "test..."
     pattern = "..."
-    output(text, pattern, kmp_recursive_search(text, pattern))
+    output(text, pattern, kmp_search(text, pattern))
 
 
 if __name__ == "__main__":

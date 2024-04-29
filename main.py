@@ -1,5 +1,5 @@
 from pyscript import window, document, display
-from kmp import kmp_recursive_search
+from kmp import kmp_search
 from split import split_string, highlight, timer
 from rk import RabinKarp
 from boyer import BoyerMoore, boyer_moore
@@ -20,7 +20,7 @@ def start_search(event):
 
     if (selectElement.value == "Knuth-Morris-Pratt"):
         start = time.perf_counter()
-        result = kmp_recursive_search(textElement.value, patternElement.value, 3)
+        result = kmp_search(textElement.value, patternElement.value, 3)
         stop = time.perf_counter()
         duration = stop - start
         timer(duration)
@@ -46,19 +46,19 @@ def start_search(event):
             replaced = "".join(spliced)
             replace_inverted = replaced[::-1]
 
-            invert_result = kmp_recursive_search(textElement.value, invert, 3)
+            invert_result = kmp_search(textElement.value, invert, 3)
             invert_split = split_string(textElement.value, invert, invert_result)
             print(invert_split)
             highlight(invert_split)
 
     
-            replaced_result = kmp_recursive_search(textElement.value, replaced, 3)
+            replaced_result = kmp_search(textElement.value, replaced, 3)
             replaced_split = split_string(textElement.value, replaced, replaced_result)
             print(replaced_split)
             highlight(replaced_split)
 
 
-            ri_result = kmp_recursive_search(textElement.value, replace_inverted, 3)
+            ri_result = kmp_search(textElement.value, replace_inverted, 3)
             ri_split = split_string(textElement.value, replace_inverted, ri_result)
             print(ri_split)
             highlight(ri_split)
@@ -168,14 +168,3 @@ def start_search(event):
             print(ri_split)
             highlight(ri_split)
 
-
-
-
-        
-
-# every algo should accept:
-# 1. `s` - string to be searched
-# 2. `p` - the pattern
-# 3. `n` - how many matches
-# then return:
-# a list of starting positions of the patterns
