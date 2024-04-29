@@ -106,8 +106,7 @@ def start_search(event):
             replace_inverted = replaced[::-1]
 
             start = time.perf_counter()
-            pbm_inverted = BoyerMoore(invert)
-            invert_result = boyer_moore(invert, pbm_inverted, textElement.value, int(matchElement.value))
+            invert_result = boyer_moore(invert, textElement.value, int(matchElement.value))
             invert_split = split_string(textElement.value, invert, invert_result)
             print(invert_split)
             highlight(invert_split)
@@ -115,14 +114,12 @@ def start_search(event):
             duration = stop - start
             timer(duration)
 
-            pbm_replaced = BoyerMoore(replaced)
-            replaced_result = boyer_moore(replaced, pbm_replaced, textElement.value), int(matchElement.value)
+            replaced_result = boyer_moore(replaced, textElement.value), int(matchElement.value)
             replaced_split = split_string(textElement.value, replaced, replaced_result)
             print(replaced_split)
             highlight(replaced_split)
 
-            pbm_ri = BoyerMoore(replace_inverted)
-            ri_result = boyer_moore(replace_inverted, pbm_ri, textElement.value, int(matchElement.value))
+            ri_result = boyer_moore(replace_inverted, textElement.value, int(matchElement.value))
             ri_split = split_string(textElement.value, replace_inverted, ri_result)
             print(ri_split)
             highlight(ri_split)
@@ -130,8 +127,8 @@ def start_search(event):
 
     elif (selectElement.value == "Rabin-Karp"):
         start = time.perf_counter()
-        rk = RabinKarp(textElement.value, patternElement.value)
-        rk.search(int(matchElement.value))
+        rk = RabinKarp(textElement.value, patternElement.value, int(matchElement.value))
+        rk.search()
         stop = time.perf_counter()
         duration = stop - start
         timer(duration)
@@ -158,21 +155,19 @@ def start_search(event):
             replaced = "".join(spliced)
             replace_inverted = replaced[::-1]
 
-            invert_result = RabinKarp(textElement.value, invert)
-            invert_result.search(int(matchElement.value))
+            invert_result = RabinKarp(textElement.value, invert, int(matchElement.value))
+            invert_result.search()
             invert_split = split_string(textElement.value, invert, invert_result.matches)
             print(invert_split)
             highlight(invert_split)
 
-            replaced_result = RabinKarp(textElement.value, replaced)
-            replaced_result.search(int(matchElement.value))
+            replaced_result = RabinKarp(textElement.value, replaced, int(matchElement.value))
             replaced_split = split_string(textElement.value, replaced, replaced_result.matches)
             print(replaced_split)
             highlight(replaced_split)
 
-
-            ri_result = RabinKarp(textElement.value, replace_inverted)
-            ri_result.search(int(matchElement.value))
+            ri_result = RabinKarp(textElement.value, replace_inverted, int(matchElement.value))
+            ri_result.search()
             ri_split = split_string(textElement.value, replace_inverted, ri_result.matches)
             print(ri_split)
             highlight(ri_split)
