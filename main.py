@@ -11,11 +11,7 @@ selectElement = document.querySelector("#Algorithms")
 modeElement = document.querySelector("#modes")
 matchElement = document.querySelector("#n")
 
-if isinstance(matchElement.value, str):
-    matchElement.innerHTML = 1
-    print(matchElement.value)
-elif matchElement.value == 0:
-    matchElement.innerHTML = 1
+
 
 def start_search(event):
     outputElement = document.querySelector(".output")
@@ -23,6 +19,12 @@ def start_search(event):
 
     timerElement = document.querySelector(".timer")
     timerElement.innerHTML = 'Time: '
+    
+    if isinstance(matchElement.value, str):
+        matchElement.innerHTML = 1
+        print(matchElement.value)
+    elif matchElement.value == 0:
+        matchElement.innerHTML = 1
 
 
     if (selectElement.value == "Knuth-Morris-Pratt"):
