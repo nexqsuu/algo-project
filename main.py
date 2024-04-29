@@ -84,8 +84,8 @@ def start_search(event):
             stop = time.perf_counter()
             duration = stop - start
             timer(duration)
-        
         if modeElement.value == "DNA":
+            alphabet = 'ACTG'
             invert = patternElement.value[::-1]
             spliced = []
             for n in patternElement.value:
@@ -104,7 +104,7 @@ def start_search(event):
             replace_inverted = replaced[::-1]
 
             start = time.perf_counter()
-            invert_result = boyer_moore(textElement.value, invert,  int(matchElement.value))
+            invert_result = boyer_moore(textElement.value, invert,  int(matchElement.value),alphabet)
             invert_split = split_string(textElement.value, invert, invert_result)
             print(invert_split)
             highlight(invert_split)
@@ -112,12 +112,12 @@ def start_search(event):
             duration = stop - start
             timer(duration)
 
-            replaced_result = boyer_moore( textElement.value, replaced, int(matchElement.value))
+            replaced_result = boyer_moore( textElement.value, replaced, int(matchElement.value), alphabet)
             replaced_split = split_string(textElement.value, replaced, replaced_result)
             print(replaced_split)
             highlight(replaced_split)
 
-            ri_result = boyer_moore(textElement.value, replace_inverted, int(matchElement.value))
+            ri_result = boyer_moore(textElement.value, replace_inverted, int(matchElement.value), alphabet)
             ri_split = split_string(textElement.value, replace_inverted, ri_result)
             print(ri_split)
             highlight(ri_split)

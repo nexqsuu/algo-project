@@ -121,8 +121,8 @@ def dense_bad_char_tab(p, amap):
     nxt[amap[c]] = i + 1
   return tab
 
-def boyer_moore(t, p, n = 1):
-  p_bm = BoyerMoore(p)
+def boyer_moore(t, p, n = 1, alphabet = ''.join(chr(i) for i in range(0x0000, 0xFFFF))):
+  p_bm = BoyerMoore(p, alphabet)
   i = 0
   
   occurences = []
@@ -142,8 +142,6 @@ def boyer_moore(t, p, n = 1):
       shift = max(shift, skip_gs)
       n -= 1
     i += shift
-    blank_space = " " * i
-    new_string = blank_space + p
   return occurences
 
 class BoyerMoore(object):
