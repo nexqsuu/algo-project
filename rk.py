@@ -1,12 +1,13 @@
 class RabinKarp:
-    def __init__(self, text, pattern):
+    def __init__(self, text, pattern, max_matches=1):
         self.text = text
         self.pattern = pattern
         self.text_length = len(text)
         self.pattern_length = len(pattern)
         self.prime = 101
         self.base = 256
-        self.matches = []
+        self.matches:list[int] = []
+        self.max_matches = max_matches
 
     def search(self):
         pattern_hash = self._hash(self.pattern)
@@ -15,6 +16,8 @@ class RabinKarp:
             substring = self.text[i:i+self.pattern_length]
             if pattern_hash == text_hash and self._check_equal(i):
                 self.matches.append(i)
+                if len(self.matches) == self.max_matches:
+                    break
             if i < self.text_length - self.pattern_length:
                 text_hash = self._recalculate_hash(
                     self.text[i], self.text[i + self.pattern_length], text_hash)
@@ -38,3 +41,7 @@ class RabinKarp:
                 return False
         return True
 
+# create a function that will run the Rabin-Karp algorithm using the same parameters as its constructor
+def rabin_karp(text:str, pattern:str, max_matches:int):
+    rk = RabinKarp(text, pattern, max_matches)
+    return rk.search()
