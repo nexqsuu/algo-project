@@ -9,9 +9,10 @@ class RabinKarp:
         self.matches:list[int] = []
         self.max_matches = max_matches
 
-    def search(self):
+    def search(self, limit=None):
         pattern_hash = self._hash(self.pattern)
         text_hash = self._hash(self.text[:self.pattern_length])
+        match_count = 0  # Initialize match count
         for i in range(self.text_length - self.pattern_length + 1):
             substring = self.text[i:i+self.pattern_length]
             if pattern_hash == text_hash and self._check_equal(i):
