@@ -64,12 +64,13 @@ body {
 
 .output {
     width: 500px;
-    height: 150px;
+    min-height: 150px;
     padding: 12px 20px;
     border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #f8f8f8;
     color: #000;
+    overflow-y: auto;
 }
 
 .timer {
