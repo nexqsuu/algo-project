@@ -20,11 +20,10 @@ def start_search(event):
     timerElement = document.querySelector(".timer")
     timerElement.innerHTML = 'Time: '
     
-    if isinstance(matchElement.value, str):
-        matchElement.innerHTML = 1
-        print(matchElement.value)
-    elif matchElement.value == 0:
-        matchElement.innerHTML = 1
+    if not matchElement.value.isdigit():
+        matchElement.innerHTML = '1'
+    elif matchElement.value == '0':
+        matchElement.innerHTML = '1'
 
 
     if (selectElement.value == "Knuth-Morris-Pratt"):
