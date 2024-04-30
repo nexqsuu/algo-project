@@ -76,13 +76,12 @@ def start_search(event):
     elif (selectElement.value == "Boyer-Moore"):
         if modeElement.value == "Standard":
             start = time.perf_counter()
-        bm = boyer_moore(textElement.value, patternElement.value,  int(matchElement.value))
-        parts = split_string(textElement.value, patternElement.value, bm)
-        highlight(parts)
-        if modeElement.value == "Standard":
+            bm = boyer_moore(textElement.value, patternElement.value,  int(matchElement.value))
             stop = time.perf_counter()
             duration = stop - start
             timer(duration)
+            parts = split_string(textElement.value, patternElement.value, bm)
+            highlight(parts)
         if modeElement.value == "DNA":
             alphabet = 'ACTG'
             invert = patternElement.value[::-1]
