@@ -38,6 +38,7 @@ def main():
         runtime(text, args.pattern, args.max_matches, kmp_search, args.runs)
         profileCalls(text, args.pattern, args.max_matches, kmp_search, args.runs)
         runtime(text, args.pattern, args.max_matches, boyer_moore, args.runs)
+        profileCalls(text, args.pattern, args.max_matches, boyer_moore, args.runs)
         runtime(text, args.pattern, args.max_matches, rabin_karp, args.runs)
         profileCalls(text, args.pattern, args.max_matches, rabin_karp, args.runs)
 
