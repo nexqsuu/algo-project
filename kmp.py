@@ -32,15 +32,15 @@ def kmp_table(P: str) -> list[int]:
             f[k] = f[i] + 1
         k+=1
     return f
-        
+
 def kmp_search(search_space: str, pattern: str, max_matches: int = 1):
     # iterative version
     TABLE = kmp_table(pattern)
-    M = len(pattern)
+    M = len(pattern) 
     N = len(search_space)
     matches = []
-    j = 0
-    k = 0
+    j = 0 # The current index in the search space.
+    k = 0 # The current index in the pattern.
     while j < N:
         if pattern[k] == search_space[j]:
             j += 1
