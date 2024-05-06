@@ -82,43 +82,43 @@ def start_search(event):
             timer(duration)
             parts = split_string(textElement.value, patternElement.value, bm)
             highlight(parts)
-        if modeElement.value == "DNA":
-            alphabet = 'ACTG'
-            invert = patternElement.value[::-1]
-            spliced = []
-            for n in patternElement.value:
-                if n == "A":
-                    spliced.append("T")
-                elif n == "C":
-                    spliced.append("G")
-                elif n == "T":
-                    spliced.append("A")
-                elif n == "G":
-                    spliced.append("C")
-                else:
-                    spliced.append(n)
-
-            replaced = "".join(spliced)
-            replace_inverted = replaced[::-1]
-
-            start = time.perf_counter()
-            invert_result = boyer_moore(textElement.value, invert,  int(matchElement.value),alphabet)
-            invert_split = split_string(textElement.value, invert, invert_result)
-            print(invert_split)
-            highlight(invert_split)
-            stop = time.perf_counter()
-            duration = stop - start
-            timer(duration)
-
-            replaced_result = boyer_moore( textElement.value, replaced, int(matchElement.value), alphabet)
-            replaced_split = split_string(textElement.value, replaced, replaced_result)
-            print(replaced_split)
-            highlight(replaced_split)
-
-            ri_result = boyer_moore(textElement.value, replace_inverted, int(matchElement.value), alphabet)
-            ri_split = split_string(textElement.value, replace_inverted, ri_result)
-            print(ri_split)
-            highlight(ri_split)
+            if modeElement.value == "DNA":
+                alphabet = 'ACTG'
+                invert = patternElement.value[::-1]
+                spliced = []
+                for n in patternElement.value:
+                    if n == "A":
+                        spliced.append("T")
+                    elif n == "C":
+                        spliced.append("G")
+                    elif n == "T":
+                        spliced.append("A")
+                    elif n == "G":
+                        spliced.append("C")
+                    else:
+                        spliced.append(n)
+    
+                replaced = "".join(spliced)
+                replace_inverted = replaced[::-1]
+    
+                start = time.perf_counter()
+                invert_result = boyer_moore(textElement.value, invert,  int(matchElement.value),alphabet)
+                invert_split = split_string(textElement.value, invert, invert_result)
+                print(invert_split)
+                highlight(invert_split)
+                stop = time.perf_counter()
+                duration = stop - start
+                timer(duration)
+    
+                replaced_result = boyer_moore( textElement.value, replaced, int(matchElement.value), alphabet)
+                replaced_split = split_string(textElement.value, replaced, replaced_result)
+                print(replaced_split)
+                highlight(replaced_split)
+    
+                ri_result = boyer_moore(textElement.value, replace_inverted, int(matchElement.value), alphabet)
+                ri_split = split_string(textElement.value, replace_inverted, ri_result)
+                print(ri_split)
+                highlight(ri_split)
 
 
     elif (selectElement.value == "Rabin-Karp"):
